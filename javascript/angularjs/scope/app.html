@@ -1,0 +1,33 @@
+<style>
+    .show-scope-demo.ng-scope,
+    .show-scope-demo .ng-scope  {
+    border: 1px solid red;
+    margin: 3px;
+    }
+
+</style>
+
+<div ng-app="scopeExample">
+    <!-- <div ng-controller="MyController">
+            Your name:
+            <input type="text" ng-model="username">
+            <button ng-click='sayHello()'>greet</button>
+variable should contained in the controller! 
+            {{ greeting }}
+    </div> -->
+    
+        <div class="show-scope-demo">
+            <div ng-controller="GreetController">
+              Hello {{name}}!
+            </div>
+            <div ng-controller="ListController">
+              <ol>
+                <li ng-repeat="name in names">{{name}} from {{department}}</li>
+              </ol>
+            </div>
+          </div>
+
+</div>
+
+<script src="../angular-1.7.0/angular.min.js"></script>
+<script src="./app.js"></script>
