@@ -1,0 +1,19 @@
+<div ng-app="myApp">
+    <div ng-controller="MyController">
+        <p>
+            try simepl notify service
+            
+        </p>
+        <input ng-init="message='test'" ng-model="message">
+        <button ng-click="callNotify(message);">
+            notify
+        </button>
+        <p>
+            clear 3 times to set up alert
+        </p>
+    </div>
+</div>
+
+<script src="../angular-1.7.0/angular.min.js"></script>
+<!-- <script src="../angular-1.7.0/angular-resource.min.js"></script> -->
+<script src="./app.js"></script>

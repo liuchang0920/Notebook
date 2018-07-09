@@ -1,0 +1,34 @@
+<style>
+div.spicy div {
+  padding: 10px;
+  border: solid 2px blue;
+}
+</style>
+
+<!-- <div ng-app="spiceApp2">
+    <div ng-controller="SpicyController">
+        <input ng-model="customSpice">
+        <button ng-click="spicy('chili')">Chili</button>
+        <button ng-click="spicy(customSpice)">Custom spice</button>
+    
+        <p>
+            the food is {{ spice }} !
+        </p>
+    </div>
+</div> -->
+
+<div class="spicy" ng-app="scopeInheritance">
+    <div ng-controller="MainController">
+        <p>Good {{timeOfDay}}, {{name}}!</p>
+
+        <div ng-controller="ChildController">
+        <p>Good {{timeOfDay}}, {{name}}!</p>
+
+        <div ng-controller="GrandChildController">
+            <p>Good {{timeOfDay}}, {{name}}!</p>
+        </div>
+        </div>
+    </div>
+</div>
+<script src="../angular-1.7.0/angular.min.js"></script>
+<script src="./app.js"></script>
