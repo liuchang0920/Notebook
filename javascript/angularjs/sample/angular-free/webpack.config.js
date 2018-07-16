@@ -1,25 +1,31 @@
 var webpack = require('webpack');
 var CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 var path = require('path');
 var config = {
     entry: {
-        app: ['./app/bootstrap.js'] // where the project started
+        app: ['./app/bootstrap.js'] // 入口文件
     },
     output: {
-        path: path.resolve(__dirname, 'app/entry'), // the folder after compiling
-        publicPath: '/entry/',
-        filename: 'bundle.js' // generated js file
-    }, 
-    module: [
-        // use CommonsChunksPlugin to load pulic modules
+        path: path.resolve(__dirname, 'app/entry'), // 编译后文件
+        publicPath: './app/entry/',
+        filename: 'bundle.js' // 生成文件名
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/
+        }]
+    },
+    plugins: [
+        // 使用CommonChunksLoader来提取公共模块
         new CommonsChunkPlugin({
-            name: 'vendors.js',
+            name: 'vendors',
             filename: 'vendors.js',
-            minChunks: function(module) {
+            minChunks: function (module) {
                 var userRequest = module.userRequest;
-                if(typeof userRequest !== 'string') {
+                if (typeof userRequest !== 'string') {
                     return false;
                 }
                 return userRequest.indexOf('node_modules') >= 0
@@ -27,10 +33,4 @@ var config = {
         })
     ]
 };
-
 module.exports = config;
-
-// bundle.js: compiled js file
-// vendor.js: dependency js file
-
-
