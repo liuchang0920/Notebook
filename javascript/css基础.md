@@ -432,5 +432,61 @@ h1 {padding: 10px 0.25em 2ex 20%;}
 
 ## CSS 边框
 
+border style
+``` html
+<style type="text/css">
+p.dotted {border-style: dotted}
+p.dashed {border-style: dashed}
+p.solid {border-style: solid}
+p.double {border-style: double}
+p.groove {border-style: groove}
+p.ridge {border-style: ridge}
+p.inset {border-style: inset}
+p.outset {border-style: outset}
+  
+多种样式
+p.aside {border-style: solid dotted dashed double;}
+</style>
+
+
+四个方向
+p {
+  border-style: solid;
+  border-top-width: 15px;
+  border-right-width: 5px;
+  border-bottom-width: 15px;
+  border-left-width: 5px;
+  }
+p {border-style: solid; border-width: 15px 5px;}
+
+```
+border-style默认是none，如果没有声明样式，相当于是none。
+如果需要边框出现，就需要声明一个**边框样式**
+
+## Border? Border-style ??
+
+## CSS 外边距
+
+margin 属性
+``` css
+h1 {margin : 0.25in;}
+h1 {margin : 10px 0px 15px 5px;} //  默认顺序从top 顺时针旋转
+
+p {margin : 10%;} // margin可以设置百分比
+```
+
+百分数是相对于夫元素的width计算的。 p元素的margin设置成外部width的10%
+
+值复制
+![](http://www.w3school.com.cn/i/ct_css_margin_value.gif)
+
+换句话说，如果为外边距指定了 3 个值，则第 4 个值（即左外边距）会从第 2 个值（右外边距）复制得到。如果给定了两个值，第 4 个值会从第 2 个值复制得到，第 3 个值（下外边距）会从第 1 个值（上外边距）复制得到。最后一个情况，如果只给定一个值，那么其他 3 个外边距都由这个值（上外边距）复制得到。
+
+隔一个引用。。
+
+
+
+## CSS 外边距 合并
+
 
 
