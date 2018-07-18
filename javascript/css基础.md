@@ -571,3 +571,258 @@ eg:
 
 ## CSS 浮动 
 浮动的框可以左右移动，直到它的外边缘碰到包含框或者另一个浮动框的边框位为止。
+由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现的就像是浮动框不存在一样
+
+![](http://www.w3school.com.cn/i/ct_css_positioning_floating_right_example.gif)
+
+eg:
+
+当框1向左浮动的时候，由于它脱离了文档流并向左移动，直到它左边碰到框的左边缘， 因为它不在处于文档流中，所以不占用空间，实际上覆盖住了框2.
+
+
+![](http://www.w3school.com.cn/i/ct_css_positioning_floating_left_example.gif)
+
+如下图所示，如果包含框太窄，无法容纳水平排列的三个浮动元素，那么其它浮动块向下移动，直到有足够的空间。如果浮动元素的高度不同，那么当它们向下移动时可能被其它浮动元素“卡住”：
+
+注意高度入多不统一的话会有一些问题
+
+![](http://www.w3school.com.cn/i/ct_css_positioning_floating_left_example_2.gif)
+
+## CSS float属性
+
+???
+
+让我们更详细地看看浮动和清理。假设希望让一个图片浮动到文本块的左边，并且希望这幅图片和文本包含在另一个具有背景颜色和边框的元素中。您可能编写下面的代码：
+
+```css
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+<div class="news">
+<img src="news-pic.jpg" />
+<p>some text</p>
+</div>
+```
+
+![](http://www.w3school.com.cn/i/ct_css_positioning_floating_clear_div.gif)
+
+一种方案：
+使用空的div
+
+``` css
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+.clear {
+  clear: both;
+  }
+
+<div class="news">
+<img src="news-pic.jpg" />
+<p>some text</p>
+<div class="clear"></div>
+</div>
+```
+
+另一种办法：
+
+对容器div进行浮动
+``` css
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  float: left;
+  }
+
+.news img {
+  float: left;
+  }
+
+.news p {
+  float: right;
+  }
+
+<div class="news">
+<img src="news-pic.jpg" />
+<p>some text</p>
+</div>
+```
+
+事实上，W3School 站点上的所有页面都采用了这种技术，如果您打开我们使用 CSS 文件，您会看到我们对页脚的 div 进行了清理，而页脚上面的三个 div 都向左浮动。
+
+
+用一个空的占位。。
+
+## CSS 元素选择器
+```css
+html {color:black;}
+h1 {color:blue;}
+h2 {color:silver;}
+
+```
+
+“类型选择器匹配文档语言元素类型的名称。类型选择器匹配文档树中该元素类型的每一个实例。”
+
+## CSS 分组
+
+``` css
+h2, p {color:gray;}
+两个不同的元素
+
+```
+
+## CSS 类选择器
+结合元素选择器
+
+``` css
+p.important {color:red;}
+
+```
+只会匹配class守护星包含important的p元素
+
+
+多个类选择器链接到一起
+
+``` css
+.important.urgent {background:silver;}
+
+<p class="important urgent warning">
+This paragraph is a very important and urgent warning.
+</p>
+
+```
+不出所料，这个选择器将只匹配 class 属性中包含词 important 和 urgent 的 p 元素。因此，如果一个 p 元素的 class 属性中只有词 important 和 warning，将不能匹配。不过，它能匹配以下元素：
+
+## CSS ID 选择器详解
+``` css
+#intro {font-weight:bold;}
+<p id="intro">This is a paragraph of introduction.</p>
+```
+
+
+## ID vs Class ?????
+区别 1：只能在文档中使用一次
+
+与类不同，在一个 HTML 文档中，ID 选择器会使用一次，而且仅一次。
+区别 2：不能使用 ID 词列表
+
+不同于类选择器，ID 选择器不能结合使用，因为 ID 属性不允许有以空格分隔的词列表。
+区别 3：ID 能包含更多含义
+
+类似于类，可以独立于元素来选择 ID。有些情况下，您知道文档中会出现某个特定 ID 值，但是并不知道它会出现在哪个元素上，所以您想声明独立的 ID 选择器。例如，您可能知道在一个给定的文档中会有一个 ID 值为 mostImportant 的元素。您不知道这个最重要的东西是一个段落、一个短语、一个列表项还是一个小节标题。您只知道每个文档都会有这么一个最重要的内容，它可能在任何元素中，而且只能出现一个。在这种情况下，可以编写如下规则：
+
+
+在这种情况下，可以编写如下规则：
+
+#mostImportant {color:red; background:yellow;}
+
+这个规则会与以下各个元素匹配（这些元素不能在同一个文档中同时出现，因为它们都有相同的 ID 值）：
+
+<h1 id="mostImportant">This is important!</h1>
+<em id="mostImportant">This is important!</em>
+<ul id="mostImportant">This is important!</ul>
+
+## 区分大小写
+
+类选择器， ID选择器区分大小写
+
+#intro {font-weight:bold;}
+
+<p id="Intro">This is a paragraph of introduction.</p>
+
+所以不会匹配上
+
+
+。。。。。
+
+
+# CSS 高级
+
+## css 水平对齐
+## 对齐块元素
+
+块元素指的是占据去哪部可用宽度的元素，**并且在其前后都会换行**
+
+``` css
+h1, p , div etc..
+```
+
+## 使用margin 水平对齐
+
+margin: auto
+
+把左右外边距设置为auto， 规定均等的分配可用的外边距，
+
+``` css
+.center
+{
+margin-left:auto;
+margin-right:auto;
+width:70%;
+background-color:#b0e0e6;
+}
+```
+
+> 提示：如果宽度是 100%，则对齐没有效果。
+
+## 使用position属性进行左右对齐
+
+方法之一是使用绝对定位：
+
+``` css
+.right
+{
+position:absolute;
+right:0px;
+width:300px;
+background-color:#b0e0e6;
+}
+```
+> 绝对定位的元素会被从正常的流中删除，并且能够交叠元素
+
+
+## 使用float， 进行左右对齐
+
+``` css
+.right
+{
+float:right;
+width:300px;
+background-color:#b0e0e6;
+}
+
+```
+## 兼容问题 ？？
+
+
+## CSS 尺寸， 这里继续看
+http://www.w3school.com.cn/css/css_classification.asp
+属性 	描述
+height 	设置元素的高度。
+line-height 	设置行高。
+max-height 	设置元素的最大高度。
+max-width 	设置元素的最大宽度。
+min-height 	设置元素的最小高度。
+min-width 	设置元素的最小宽度。
+width 	设置元素的宽度。
+
