@@ -826,3 +826,6 @@ min-height 	设置元素的最小高度。
 min-width 	设置元素的最小宽度。
 width 	设置元素的宽度。
 
+
+## n-child 用法
+https://themarklee.com/2013/09/29/repeating-patterns-nth-child/
