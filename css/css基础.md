@@ -841,3 +841,9 @@ http://www.cssarrowplease.com/
 
 ## Angularjs ng-repeat with columns in one row
 https://stackoverflow.com/questions/27211799/angular-ng-repeat-add-bootstrap-row-every-3-or-4-cols
+
+
+## Box without moving when changing border
+by giving outline and border, toggle transparent each time
+
+https://codepen.io/sifulislam/pen/KgXLmr
