@@ -833,3 +833,11 @@ https://themarklee.com/2013/09/29/repeating-patterns-nth-child/
 
 ## Mixin 知识点
 https://www.w3cplus.com/preprocessor/sass-mixin-or-extend.html
+
+
+## Box with Arrow
+https://stackoverflow.com/questions/5623072/how-can-i-create-a-tooltip-tail-using-pure-css/5633146#5633146
+http://www.cssarrowplease.com/
+
+## Angularjs ng-repeat with columns in one row
+https://stackoverflow.com/questions/27211799/angular-ng-repeat-add-bootstrap-row-every-3-or-4-cols
