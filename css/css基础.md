@@ -847,3 +847,8 @@ https://stackoverflow.com/questions/27211799/angular-ng-repeat-add-bootstrap-row
 by giving outline and border, toggle transparent each time
 
 https://codepen.io/sifulislam/pen/KgXLmr
+
+## height与line-height区别
+
+在css中可以使用height与line-height来控制高度，其中height是指标签块的高度；而line-height是指元素的行高，line-height包括元素高度和空白的高度。
+
