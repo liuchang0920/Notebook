@@ -30,3 +30,28 @@ Register a provider with a component when you must limit a service instance to a
 
 # singleton Services
 
+## Providing a singleton service
+
+* Declare that the service should be provided in the application root.
+* Include the service in the AppModule or in a module that is only imported by the AppModule. (一般这么做吧)
+
+
+V6以后:
+
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class UserService {
+}
+
+```
+
+## forRoot() ??
+
+
+## lazy loading featured modules??
+
+
