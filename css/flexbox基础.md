@@ -124,9 +124,10 @@ justify-content 属性有和 align-content 一样的属性值：
 
 ### 使用 auto margins 给主轴对齐定位
 
-todo。。 i can't wait
+todo。。 
 
-   
-   
-   
 
+
+## 阮一峰 
+flexbox 介绍
+http://www.ruanyifeng.com/blog/2015/07/flex-examples.html
