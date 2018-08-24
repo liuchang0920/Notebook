@@ -86,4 +86,91 @@ function fromEvent(target, eventName) {
     }
   }
 }
+
+use observervable
+
+const ESC_KEY = 27;
+const nameInput = document.getElementById('name') as HTMLInputElement;
+
+const subscription = fromEvent(nameInut, 'keywdown').subscribe(
+  (e: KeyboardEvent) => {
+    if(e.keyCode === ESC_KEY) {
+      nameInput.value = '';
+    }
+  }
+)
 ```
+
+
+## Multi casting
+
+Multicasting is the practice of broadcasting to a list of multiple subscribers n a single execution.
+With a multicasting observable, you don't reister mlutiple listeners on the document, but instead re-use the first listener and send values out to each subscriber.
+
+when creating an observable you should determine how you wan that observable to be used and whether or not you want to multicast its value.
+
+eg:
+
+```ts
+function sequenceSubscriber(observer) {
+  const seq = [1, 2, 3]
+  let timeoutId;
+  
+  function doSequence(arr, idx) {
+    timeoutId = setTimeout(() => {
+      observer.next(arr[idx]);
+      
+      if(idx == arr.length - 1) {
+        observer.complete();
+      } else {
+        doSequence(arr, ++idx);
+      }
+    }, 1000);
+  }
+  
+doSequence(seq, 0);
+
+return {
+  unsubscribe() {
+    clearTimeout(timeoutId);
+  }
+}
+
+// Create a new Observable that will deliver the above sequence
+const sequence = new Observable(sequenceSubscriber);
+ 
+sequence.subscribe({
+  next(num) { console.log(num); },
+  complete() { console.log('Finished sequence'); }
+});
+ 
+// Logs:
+// (at 1 second): 1
+// (at 2 seconds): 2
+// (at 3 seconds): 3
+// (at 3 seconds): Finished sequence
+
+
+```
+
+
+Notice that if you subscribe twice, there will be two separate streams, each emitting values every second. It looks something like this:
+
+
+额.. 继续看看multi cast
+
+
+## Error handling
+Since observables produces values asynchronously, try/catch will not effectively cat errors.
+instead, handler errors by specifing an error callback on the observer.
+
+
+
+```ts
+observable.subscribe({
+  next(num) { console.log(num);},
+  error(err) { console.log('received an error: ', err); }
+  
+})
+```
+
