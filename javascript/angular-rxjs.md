@@ -40,3 +40,50 @@ myObservable.subscribe(
 
 
 
+## subscribing
+
+Observable instance only begins publishing values when someone subscribes it.
+
+* Observable.of(...items) -- returns an observable instance that synchronously delivers the value
+* Observale.from(iterable) -- converts its argument to an Observable instance. This method is commonly used to convert an array to an observable.
+
+create observable with constructor, 
+
+```ts
+function sequenceSubscriber(obserer) {
+  observer.next(1);
+  observer.next(2);
+  observer.complete();
+  
+  return { unsubscribe() {} };
+}
+const sequence = new Observable(sequenceSubscriber); // 放到observerble的构造参数里
+
+sequence.subscribe({
+  next(num) {
+    console.log(num);
+  }, 
+  complete() {
+    console.log("finish");
+  }
+})
+
+```
+
+create an observable that publish events.
+
+```ts
+function fromEvent(target, eventName) {
+  return new Observable((observer) => {
+    const handler = (e) => observer.next(e);
+    
+    // add event handler to the target
+    target.addEventListener(eventName, handler);
+    
+    return () => {
+      // detach the event handler from the target
+      target.removeEventListener(eventName, handler);
+    }
+  }
+}
+```
