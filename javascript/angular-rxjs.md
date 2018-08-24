@@ -1,6 +1,6 @@
 
 
-Observable
+# Observable
 
 ## 基本用法，词汇
 * 订阅者(subscriber)
@@ -173,4 +173,118 @@ observable.subscribe({
   
 })
 ```
+
+# Rxjs Library
+reactive programming is an asynchronous programming paradigm concerned with data streams and the propagation of change.
+
+rxjs creat utility function that can be used for:
+
+* converting existing code for async operations into observables
+* iterating through the values in a stream
+* mapping values to different types
+* filtering streams
+* composing multiple steams
+
+## Observable creation functions
+
+### Create an observable from a promise
+
+```ts
+import { fromPromise } from 'rxjs';
+
+const data = fromPrommise(fetch('api/endpoint'));
+
+data.subscribe({
+  next((response) => console.log(response)),
+  error(err) { console.log("error: ", err); },
+  complete() { console.log("completed"); }
+});
+
+```
+
+### create from a counter
+```ts
+import { interval } from 'rxjs';
+
+const secondsCounter = interval(1000);
+
+secondsCounter.subscribe(n => console.log(`${n} seconds since subscribing`');
+```
+
+
+### create from an event
+
+```ts
+import { fromEvent } from 'rxjs';
+
+const el = document.getElementById('my-element');
+
+const mouseMoves = fromEvent(el, 'mousemove');
+
+const subscription = mouseMoves.subscribe((event: MouseEvent) => {
+  console.log(`corrds: ${evt.clientX} X, ${evt.clientY} Y`);
+  
+  // When the mouse is over the upper-left of the screen,
+  // unsubscribe to stop listening for mouse movements
+  if (evt.clientX < 40 && evt.clientY < 40) {
+    subscription.unsubscribe();
+  }
+  
+});
+
+```
+
+### create from ajax
+
+```ts
+import { ajax } from 'rxjs/ajax';
+
+const apiData = ajax('/api/data');
+
+apiData.subscribe(res => console.log(res.status, res.response));
+```
+
+
+## Operators
+build on observable foundation t oenable sophisticated manipulation of collections.
+
+eg: map, filter, concat, flatmap
+
+```ts
+import { map } from 'rxjs/operators';
+const nums = of(1, 2, 3);
+
+const squareValues = map((val: number) => val * val);
+const squareNums = squareValues(nums);
+
+squareNums.subscribe(x => console.log(x));
+
+```
+
+
+### pipe
+use pipes to link operators together. let you combine multiple functions into a single function.
+
+```ts
+import { filter, map} from 'rxjs/operators';
+const nums = of(1, 2, 3, 4, 5);
+
+const squareOddVals = pipe(
+  filter((n: number) => n % 2 !== 0),
+  map(n => n * n)
+)
+
+const squareOdd = squarOddVals(nums);
+squareOdd.subscribe(x => console.log(x));
+
+```
+
+### Frequently used operators:
+
+* creation
+  1. from
+  2. fromPromise
+  3. fromEvent
+  4. of
+* combination
 
