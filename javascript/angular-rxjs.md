@@ -287,4 +287,32 @@ squareOdd.subscribe(x => console.log(x));
   3. fromEvent
   4. of
 * combination
+  1. combineLatest
+  2. concat
+  3. merge
+  4. startWith
+  5. withLatestForm
+  6. zip
+* filtering
+  1. debounceTime
+  2. destinctUntilChanged
+  3. filter
+  4. take
+  5. takeUntil
+ * transformation
+  1. bufferTime
+  2. concatMap
+  3. map
+  4. mergeMap,
+  5. scan, 
+  6. switchMap
+
+* Utility
+  1. tap
+ 
+* Multicasting
+  1. share
+
+
+
 
