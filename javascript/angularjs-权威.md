@@ -175,8 +175,117 @@ angular.module('myApp.filters', [])
 ## 第八章 指令简介
 
 
+## 自定义HTML元素和属性
 
 
 
- 
+1. HTML引导
+<html ng-app="myApp"> <!-- 应用的$rootScope --> </html> 
+
+2. 第一个指令
+假设我们已经创建了一个完整的html文档，包含了angularjs,并且DOM中已经使用了ng-app指令表示出应用的根元素，当angularjs编译html时就会调用指令
+
+```js
+<my-dir></my-dir>
+
+angular.module('myDir', [])
+.directive('myDirective'. function() {
+  
+  return {
+    restrict: 'E',
+    template:  '<a href="http://google.com"> Click me to go to Google</a>' 
+  }
+})
+```
+
+
+```js
+angular.module('myApp', []) .directive('myDirective', function() { return { restrict: 'E', replace: true, template: '<a href="http://google.com">Click me to go to Google</a>' }; }); 
+
+```
+replace 改为true
+DOM中原始的指令声明已经不见了，只有我们在末班中写的HTML代码。replace方法会使用自定义元素取代指令的声明，而不是镶嵌在内部
+。
+
+
+从现在起，我们把创建这些自定义元素称作指令：“ directive” 
+
+下面都是合法的形式：
+
+<my-directive></my-directive> 
+<div my-directive></div>
+<div class="my-directive"></div> 
+<!--directive:my-directive--> 
+
+
+为了能够让angularjs调用我们的指令，需要修改指令定义中的restrict设置。
+
+E： 元素
+A: 属性
+C: 类
+M: 注释？？
+
+```js
+angular.module('myApp', []) 
+.directive('myDirective', function() { 
+  return { 
+    restrict: 'EAC', replace: true, template: '<a href="http://google.com">Click me to go to Google</a>' 
+  }; 
+});
+```
+
+eg:
+
+template: '<a href="{{ myUrl }}">{{ myLinkText }}</a>' 
+
+在html文档中，可以给指令添加myUrl, myLinkText属性 <div my-directive my-url="http://google.com" my-link-text="Click me to go to Google"> </div> 
+
+
+
+> 共享状态能够导致很多问题，如果控制器被移除，或者当前的控制器的作用域中也有一个myUrlshuxing ,我们就需要被迫修改代码，成本很高，而且让人沮丧。
+
+Angularjs 允许通过创建新的子作用域或者隔离作用域来解决这个常见的问题。
+
+
+eg:
+这个绑定策略告诉angularjs将DOM中 some-property属性值，绑定到新作用域对象中的somePropery属性上
+
+scope: {
+  someProperty: '@'
+}
+
+
+
+scope: { someProperty: '@someAttr' } 
+
+--->
+
+<div my-directive some-attr="someProperty with @ binding"> </div> 
+
+```js
+
+<div my-directive my-url="http://google.com" my-link-text="Click me to go to Google"></div> angular.module('myApp', []) .directive('myDirective', function() { return { restrict: 'A', replace: true, scope: { myUrl: '@', //绑定策略 myLinkText: '@' //绑定策略 }, template: '<a href="{{myUrl}}">' + '{{myLinkText}}</a>' }; });
+```
+
+默认情况下约定DOM属性和JavaScript中对象属性的名字是一样的（除非对象的属性名采用 的是驼峰式写法） 。 由于作用域中属性经常是私有的，因此可以（虽然不常见）指定我们希望将这个内部属性同 哪个DOM属性进行绑定： 
+
+scope: {
+
+  myUrl: '@someAttr',
+  myLinkText: '@'
+}
+
+
+额 
+
+# 第九章 内置指令
+
+暂时略过
+
+# 第十章 指令详解
+
+
+
+
+
 
