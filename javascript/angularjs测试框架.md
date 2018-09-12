@@ -15,3 +15,6 @@
  可能需要看一下配置babel, typescirpt 
  
  
+
+karma: 
+https://www.cnblogs.com/dubaokun/p/3397295.html
