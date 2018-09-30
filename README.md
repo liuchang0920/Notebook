@@ -1,6 +1,7 @@
 # Notebook
 notes taking
 
+* Design Pattern
 * Java
 * JS
   * Angularjs
@@ -9,6 +10,7 @@ notes taking
 * CSS
 * Ruby
 * Golang
+* Distributed system
 * machine learning
 * tools
   * git
