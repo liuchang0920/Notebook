@@ -3,6 +3,10 @@
 https://angularfirebase.com/lessons/rxjs-quickstart-with-20-examples/
 https://angularfirebase.com/lessons/top-7-rxjs-patterns-for-angular-development/
 
+https://ithelp.ithome.com.tw/articles/10188387?sc=iThomeR
+
+
+
 # Observable
 
 ## 基本用法，词汇
