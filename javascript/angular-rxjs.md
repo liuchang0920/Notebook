@@ -1,4 +1,7 @@
 
+## 资料
+https://angularfirebase.com/lessons/rxjs-quickstart-with-20-examples/
+https://angularfirebase.com/lessons/top-7-rxjs-patterns-for-angular-development/
 
 # Observable
 
