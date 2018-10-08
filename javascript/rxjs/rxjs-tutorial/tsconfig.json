@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/js/",
+      "target": "es5",
+      "noImplicitAny": false,
+      "sourceMap": true,
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true,
+      "lib": ["es2017"],
+    },
+    "include": [
+      "./src/**/*",
+      "./node_modules/typescript/lib/lib.es6.d.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+    ]
+  }
