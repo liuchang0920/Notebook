@@ -80,14 +80,37 @@ setTimeout(function () {
 // observabe.subscribe(subject);
 // multi cast
 var operators_1 = require("rxjs/operators");
-var source = rxjs_1.from([1, 2, 3]);
+// const source = from([1, 2, 3])
+// const subject = new Subject();
+// // https://stackoverflow.com/questions/50166366/multicast-operator-with-pipe-in-rxjs-5-5
+// const multicasted = source.pipe(multicast(subject)) as ConnectableObservable<number>
+// subject.subscribe({
+//     next: (v) => console.log(`observable 1: ${v}`)
+// })
+// subject.subscribe({
+//     next: (v) => console.log(`observable 2: ${v}`)
+// })
+// multicasted.connect();
+// usually, we want to automaically connect when the first Observer arrives, and automatically cancel the 
+// shared execution, when the last observer unsubscribes.
+var source = rxjs_1.interval(1000);
 var subject = new rxjs_1.Subject();
 var multicasted = source.pipe(operators_1.multicast(subject));
-subject.subscribe({
-    next: function (v) { return console.log("observable 1: " + v); }
+var sub1, sub2, subscriptionConnect;
+sub1 = multicasted.subscribe({
+    next: function (v) { return console.log("observableA: " + v); }
 });
-subject.subscribe({
-    next: function (v) { return console.log("observable 2: " + v); }
-});
-multicasted.connect();
+subscriptionConnect = multicasted.connect();
+setTimeout(function () {
+    sub2 = multicasted.subscribe({
+        next: function (v) { return console.log("observer B: " + v); }
+    });
+}, 2000);
+setTimeout(function () {
+    sub1.unsubscribe();
+}, 5000);
+setTimeout(function () {
+    sub2.unsubscribe();
+    subscriptionConnect.unsubscribe(); // close the shared observable execution
+}, 5000);
 //# sourceMappingURL=demo.js.map
