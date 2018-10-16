@@ -197,3 +197,53 @@ CanDeactivate守卫： 让你有机会在清理工作或者离开当前视图之
 
 
 CanLoad 守卫（在加载特性模块之前进行检查）。
+
+
+
+## routerLinkActive 绑定
+
+每个A标签还有routerLinkActive指令的属性绑定，就像routerLInkActive=""
+
+等号右侧的魔板表达式包含用空格分隔的一些css类。，还可以将RouterLinkActive指令绑定到一个css类组成的数组
+
+[routerLinkActive]="[...]"
+
+routerLinkAcitve指令会基于当前的ROuterState，对象来激活RouterLInk切换css类。并且会一直沿着路由树， 由上往下级联处理。
+
+
+## 路由器指令集
+
+
+### 通配符路由
+
+``` ts
+{ path: '**', component: PageNotFoundComponent }
+
+```
+
+
+localhost:4200 默认没有对应的路由， 那么需要一个重定向路由
+
+### 重定向路由
+
+``` ts
+const appRoutes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'heroes',        component: HeroListComponent },
+  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+];
+
+```
+
+technically, pathMath = full, 导致 剩下，未匹配的部分必须等于 "", 这个例子中，跳转的路由在顶级路由，因此，剩下的URL跟完整的URL是一样的
+
+pathMatch另一个值： prefix. 他会告诉路由器： 剩下的URL以这个为prefix的时候，机会匹配上这个跳转路由
+
+
+
+## 里程碑2 路由模块 
+
+
+
+
