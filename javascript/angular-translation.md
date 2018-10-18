@@ -4,3 +4,7 @@ https://medium.com/letsboot/translate-angular-4-apps-with-ngx-translate-83302fb6
 
 ## conversion from json <-> properties
 https://www.npmjs.com/package/json-to-properties
+
+
+## demo
+https://stackblitz.com/edit/angular-ngx-translation-demo
