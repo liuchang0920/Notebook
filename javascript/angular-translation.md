@@ -15,6 +15,10 @@ https://stackblitz.com/edit/angular-ngx-translation-demo
 https://medium.com/@nsrathore/custom-loader-for-ngx-translate-core-7d87b00904d
 
 
+## loader is useless when build
+
+https://github.com/ngx-translate/core#3-define-the-translations
+
 ## 杂七杂八
 https://stackoverflow.com/questions/43091277/ng2-translate-and-input
 https://github.com/ngx-translate/core/issues/496
