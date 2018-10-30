@@ -103,8 +103,215 @@ Four importantat key pieces:
 
 
 ## Change detectin
+略..
+
+## Template expression and bindings
+
+there are several ways angular uses template:
+
+* interpolation: 
+* attribute and property bindings: link data from componenet controller into attribute or properties of other elements
+* event binding: bind event listener to elements
+* directives: modify thebehavior or adding additional structure to elements
+* pipes: formatting data before displayed
+
+### Interpolation
+花括号表达方式: {{ ... }}
+
+### Property bindings
+
+<img [src]="..." />
+
+property bindings don't use the curly braces and evaluate everything inside the quotes as the expression..
+
+... 的部分对应 controller的属性 或者 函数
+
+
+
+restate: interpolation is a shortcut for a property binding to th etextContent property of an element.
+
+> Using the [] syntax bind to an element's property, not the attributes.. properties are DOM's elemnt' property.
+
+大小写也不同..
+
+rowspan="{{rows}}"
+
+等于
+
+[rowSpan]="rows"
+
+所以推荐用[] 的语法,避免用html那一套的东西,可能在debug的时候 花费多余的经历
+
+### Special property bindings
+
+个别的class name如果需要conditional的话:
+
+```html
+<h1 class="h1"> [class.active]="isAcive()"> title</h1>
+
+renders to: 
+<h1 class="h1 active"> title</h1>
+
+
+<h1 class="h1"> [class]="isAcive()"> title</h1>
+则会全部替换掉:
+
+<h1 class="isActive">title</h1>
+
+```
+
+
+style property: 
+
+```
+<h1 [style.color]="getColor()">Title</h1>
+<h1 [style.line-height.em]="'2'"> Title </h1>
+
+renders to:
+
+<h1 style="color: blue;">Title</h1>
+<h1 style="line-height: 2rem;"> Title </h1>
+
+```
+
+### Attribute bindings
+
+
+# Component Basics
+
+## primary things compose a component
+
+* Metadata decorator: eg: @Component
+* Controller: contains all the properties and methods for the component
+* template: 
+
+
+## Lifecycle hooks
+
+ngOnInit: runs in the cycle but after all bindings have been resolved, so it's safer to know that all data is available for the component.
+
+
+## nesting components
+
+any component that's nested inside another, is called "View child"
+
+### Types of components
+
+* app 
+* display
+* data
+* route
+
+
+
+### app component
+
+* keep simple
+* use for app layout scaffolding
+* avoid loading data
+
+
+### display component
+
+most third-party components will be in this role, since it's the most decoupled type of component
+
+guidance:
+
+* decouple
+* make it flexible if necessary
+* don't load data
+* have a clean api
+* optionally use a service for configuration
+
+### data components:
+
+primarily about handling, retrieving, accepting data.
+
+
+### route component
+
+these components aren't very reusable and are typically created specifically for a sepecific route in an application
+
+
+guidance:
+
+* template scffolding for the route
+* load data o rrely on data components
+* handles route parameters
+
+
+## creating a data component
 
 
 
 
- 
+```html
+<app-navbar></app-navbar>
+<app-dashboard></app-dashboard>
+
+```
+
+
+## using inputs with components
+```html
+<summary [stock]="stock"> </summary>
+```
+
+### input basics
+
+
+@Input('used')
+
+consider it as alias
+
+```html
+<div [ngClass]="{'bg-danger': isDanger(), 'bg-success': !isDanger() }"> ... </div>
+```
+
+### intercepting inputs
+
+getter/ setter methods..
+
+
+
+selector:
+
+```ts
+@Component({
+    selector: '[app-nodes-row]'// update the selector to use the attribute app-notes-row
+    templateUrl: './notes-row.component.html',
+    styleUrl: ['./node-row.component.css']
+})
+```
+
+
+题外话, using default scss : https://stackoverflow.com/questions/36220256/angular-cli-sass-options
+
+
+
+select 关键字:
+
+```html
+
+<ng-content select="metric-title">
+</ng-content>
+
+等价于
+
+<metric-title></metric-title>
+
+```
+
+...
+
+
+
+# 5. Advanced Components
+
+## change detection
+略
+
+## communication between componnet
+
+### output events and template variables
+
