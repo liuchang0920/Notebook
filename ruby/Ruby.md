@@ -17,3 +17,9 @@ https://www.jianshu.com/p/354db444bfcd
 ## class inheritance
 
 https://www.cnblogs.com/tardis/p/4004438.html
+
+
+
+傻屌概念
+
+http://lazybios.com/2017/01/ruby-triple-equals-operator/
