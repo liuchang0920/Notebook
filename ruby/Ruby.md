@@ -24,3 +24,6 @@ https://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby
 傻屌概念
 
 http://lazybios.com/2017/01/ruby-triple-equals-operator/
+
+
+https://www.kancloud.cn/imxieke/ruby-base/107282
