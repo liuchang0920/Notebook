@@ -26,4 +26,5 @@ https://stackoverflow.com/questions/4370960/what-is-attr-accessor-in-ruby
 http://lazybios.com/2017/01/ruby-triple-equals-operator/
 
 
+# 看这个， 其他的没用
 https://www.kancloud.cn/imxieke/ruby-base/107282
