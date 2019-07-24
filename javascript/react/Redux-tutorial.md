@@ -183,7 +183,158 @@ visibleTodoFilter: nextVisibleTodoFilter
 ## 搭配React
 
 
+## redux的store 
 
+store有以下职责：
+* getState()
+* dispatch(action)
+* subscribe(listener) 注册监听器
+* subscribe(listener) 注销监听器
+
+
+### connect() 函数
+
+使用connect之前，需要 mapStateToProps() 函数指定如何把当前的Rdxus store state映射到组件的props中。 eg: VisibleTodoList, 需要计算传到TodoList的todos， 
+
+```js
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visiblityFilter)
+  }
+
+}
+
+// return the props that is needed into this component
+
+```
+
+除了读取state，容器组件还可以分发action
+
+类似的方式，可以定义
+
+mapDispatchToProps()方法接收dispatch()
+
+```
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoClick: id => {
+      dispatch(toggleTodo(id))
+    }
+  }
+}
+
+```
+
+// this onTodoClick will be bundled to some functions in the component, 
+
+使用connect() 创建VisibleTodoList
+传入两个函数
+
+```
+import { connect } from 'react-redux';
+
+const VisibleTooList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);
+
+export default VisibleTodoList;
+```
+
+如果你担心mapStateToProps 创建对象太过于频繁，可以学习如何使用 reselect来计算衍生数据
+
+```
+
+import { connect } from 'react-redux;
+import { toggleTodo } from '../actions';
+import TodoList from '../components/TodoList';
+
+const getVisibleTodos = (todos, filter) => {
+  switch(filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETED':
+      return todos.filter(t => t.completed); 
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoClick: id => {
+      dispatch(toggleTodo(id));
+    }
+  }
+}
+
+
+const VisileTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList);
+
+export default VisibleTodoList;
+
+
+
+```
+
+### 传入 Store
+
+所有容器组件都可以访问redux store, 所以可以手动监听它。但是如果把它用props的形式传入的话，太麻烦了， 必须要用store把展示组件包裹一层，仅仅是因为恰好在组件树中渲染了一个组件。
+
+建议使用Provider 组件(感觉跟context有点像)
+来魔法般的让所有的容器组件都能够访问store.
+
+
+```
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import todoApp from './reducers';
+import App from './components/App';
+
+let store = createStore(todoApp);
+
+render(
+  <Provider store={store}>
+    <App/>
+  </Provider>
+, document.getElementById('root'));
+
+```
+
+
+## 异步action
+
+异步调用的时候，最少有三种action
+
+1. 一种通知reducer请求开始的action
+2. 一种通知reducer请求成功的action
+3. 一种通知reducer请求失败的action
+
+对于多种action
+使用多个action type 能够降低犯错误的几率
+
+```
+{ type: 'FETCH_POSTS_REQUEST' }
+{ type: 'FETCH_POSTS_FAILURE', error: 'Oops' }
+{ type: 'FETCH_POSTS_SUCCESS', response: { ... } }
+
+```
+
+但是如果你使用像redux-actions这类型的辅助库来生成action创建函数和reducer的话，这就完全不是问题了
+
+
+例子： 请求reddit
+把
+ request
 
 
 reference: https://cn.redux.js.org/docs/introduction/ThreePrinciples.html
