@@ -188,3 +188,9 @@ visibleTodoFilter: nextVisibleTodoFilter
 
 reference: https://cn.redux.js.org/docs/introduction/ThreePrinciples.html
 
+
+https://medium.com/swinginc/react-redux-typescript-into-the-better-frontend-tutorial-d32f46e97995
+
+https://github.com/piotrwitek/react-redux-typescript-guide
+
+https://www.sitepoint.com/crud-app-react-redux-feathersjs/
