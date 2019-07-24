@@ -342,12 +342,60 @@ render(
 dispatch receive_post action
 
 ```js
-...
+
+export const receve_post = '...';
+
+export function receivePosts(subresddit, json) {
+  return {
+    type: receive_post,
+    subreddit,
+    post: json.data.children.map(child => child.data),
+    receivedAt: Date.now()
+  }
+}
 
 ```
 
 
+
 ### 设计State 结构
+
+
+这部分通常会让初学者感到迷惑。因为选择哪些信息才能更清晰的描述异步应用的state并不直观，还有怎么用一个树来把这些信息组织起来。
+
+eg: 最通用的案例来打头：
+
+web应用疆场需要展示一些内容的列表。比如，帖子的列表。朋友的列表。
+
+首先要明确显示哪些列表，然后分开存储在state中。这样才能对他们分别做缓存并且在需要的时候再次请求更新数据
+
+* 分开存储subreddit信息，是为了缓存所有的subreddit。当用户来回切换subreddit的时候，可以立即更新，同时在不需要的时候可以不请求数据。
+* 每个帖子的列表都需要使用isFetching来先显示进度条。didInvalidate来标记数据是否过期。lastUpdated来存放数据最后的更新时间。还有items存放数据信息本身。
+
+* 在实际应用当中，还需要fetchedPageCount, nextPageUrl这样的分页相关的state.
+
+
+
+#### 嵌套内容须知
+
+在本教程中，我们不会对内容进行范式化，但是在一个复杂的应用中，你可能需要使用
+
+
+#### 处理action
+
+在讲解dispatch action与网络请求结合使用细节前，我们为上面的定义的action开发一些reducer
+
+
+* 使用ES6 计算属性语法 Object.assign()来简洁的高校更新state[action.subreddit]
+
+```
+return Object.assign({}, state, {
+  [action.subreddit]: posts(state[action.subreddit], action)
+})
+
+```
+
+reducer只是一个函数，所以尽情使用函数组合和高阶函数这些特性
 
 
 
