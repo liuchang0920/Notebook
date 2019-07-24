@@ -332,9 +332,24 @@ render(
 但是如果你使用像redux-actions这类型的辅助库来生成action创建函数和reducer的话，这就完全不是问题了
 
 
-例子： 请求reddit
-把
- request
+例子： 请求reddit 的action：  request_posts, select_subreddit, invalidate_subreddit 分开很重要。
+
+虽然他们的发生有先后顺序，但是随着应用变得复杂，有些用户操作(预先加载最流行的subreddit,或者一段时间后自动刷新过期数据，)后需要马上请求数据。
+
+路由变化也要根据请求数据，所以一开始如果再请求数据和特定的UI时间耦合到一起，是不明智的
+
+最后，当我们接收到请求的响应的时候，
+dispatch receive_post action
+
+```js
+...
+
+```
+
+
+### 设计State 结构
+
+
 
 
 reference: https://cn.redux.js.org/docs/introduction/ThreePrinciples.html
