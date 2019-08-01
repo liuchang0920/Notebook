@@ -98,6 +98,80 @@ generator函数不用于其他函数的地方： 他不会返回结果，返回�
 会移动内部的指针，会移动内部指针指向第一个yield的语句
 
 
-### 6. generator 的
-### 6. generator函数函数的
-### 6. generator函数
+### 6. generator 的函数的数据交换和错误处理
+
+generator函数的内部，还可以部署错误处理代码，捕获函数体外抛出的错误
+
+```
+
+function* gen(x) {
+  try {
+    let y = yeild x + 2;
+    
+  }catch(e) {
+    console.log(e)
+  }
+  
+  return y;
+}
+```
+
+var g = gen(1);
+g.next();
+g.throw（'出错了'）;
+// 出错了
+
+### 7. generator函数的使用方法
+
+如何使用generator执行一个真实的异步任务
+
+```
+
+let fetch = require('node-fetch');
+
+function* gen() {
+  let url = '....';
+  let result = yield fetch(url);
+  console.log(result.bio);
+}
+
+```
+执行generator的代码如下：
+
+
+```
+let g = gen();
+let reslt = g.next();
+
+result.value.then((data) => {
+  return data.json()
+})
+
+.then((data) => {
+  g.next(data);
+})
+
+```
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators
+
+
+## generator 
+
+generator functions provide a powerful alternative: they allow you to define an iterative algorithm by writing a single function whose execution is not continuous. Generator functions are written using the function* syntax.
+when called initially, generator functions do not execute any their code, instead return a type of iterator called a **generator**. when a value is consumed by calling the generator's next method, the generator function executes until it encounters the yield keyword.
+
+The function can be callled as many times as desired, and returns a new generator each time, however, each generator may only be iterated once.
+
+
+```
+function* makeRangeIterator(start = 0, end= 1000, step = 1) {
+  for(let i=start;i<end;i+=step) {
+    yield i;
+  }
+}
+```
+
