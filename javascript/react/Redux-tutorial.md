@@ -184,3 +184,138 @@ visibleTodoFilter: nextVisibleTodoFilter
 
 
 
+
+
+
+............
+
+
+阮一峰
+
+1. 中间件的用法
+
+中间件就是一个函数, 对store.dispatch进行了重新定义,发送Action前后添加了打印功能. 这就是中间件的雏形
+
+需要注意两点
+
+1. createStore() 方法可以接收应用的初始状态作为参数
+
+``` jsx
+const store = createStore(
+  reducer,
+  initial_state,
+  applyMiddleware(logger)
+)
+
+```
+
+2. 中间件的次序有讲究
+
+``` jsx
+const store = createStore(
+  reducer,
+  applyMidleware(thunk, promise, logger)
+)
+
+```
+
+3. applyMiddlwares()
+
+将所有的中间件,组成一个数组,依次执行.
+
+
+4. 异步操作的基本思路
+
+
+同步操作: 只发出一种action即可,异步操作的差别是发出三种action
+
+* 操作发起时的action
+* 操作成功时的action
+* 操作失败时的action
+
+
+5. redux-thunk 中间件
+
+改造 store.dispatch, 使得他可以接收函数作为参数 ?
+
+6. redux-promise 中间件
+
+既然action creator可以返回函数,那么当然也可以返回其他值
+
+另一种异步操作的解决方案,是action creator返回一个promise 对象
+
+``` js
+
+import { createStore, applyMiddleware } from 'redux';
+import promiseMiddleware from 'redux-promise';
+import reducer from './reducers';
+
+const store = creatStore(
+  reducer,
+  applyMiddleware(promiseMiddleware)
+)
+
+
+使用时:
+
+const fetchpost = (dispatch, postTitle) => new Promise(function(resolve, reject) {
+  dispatch(requestPost(postTitle));
+  return fetch(`some/api/${postTitle}.json`)
+          .then(response => {
+            type: 'FETCH_POSTS',
+            payload: response.json()
+          });
+});
+
+```
+..........
+
+
+## react-redux 教程
+
+### 1. UI组件
+
+UI 组件特点
+
+* 只负责呈现ＵＩ，没有任何逻辑
+* 没有状态，　不使用this.state
+* 所有数据都由 参数提供　this.props
+* 不使用任何 redux 的api
+
+UI组件的例子
+
+```js
+const Title = value => <h1>{value}</h1> 
+```
+
+它就跟纯函数一样
+
+### 2. 容器组件
+
+容器组件的特征
+
+* 负责管理数据和业务逻辑,不负责UI的呈现
+* 带有内部的状态
+* 使用Redux的API
+
+react-redux规定,所有的UI组件都由用户提供,容器组件则是由react-redux自动生成,也就是说,用户负责视觉层,状态管理全部交给它
+
+### 3. connect() 
+
+react-redux 提供的connect 方法,用于从UI组件生成容器组件
+
+connect的意思是,将两种组件链接起来
+
+```js
+
+import { connect } from 'react-redux'
+const VisibleTodoList = connect()(TodoList);
+
+```
+
+因为没有定义业务逻辑,这个容器组件毫无意义.只是一个UI组价的单纯包装,为了定义业务逻辑,需要给出下面两个方面的信息.
+
+
+
+
+

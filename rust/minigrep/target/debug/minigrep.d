@@ -1,0 +1,1 @@
+/home/liuchang/Documents/repository/Notebook/rust/minigrep/target/debug/minigrep: /home/liuchang/Documents/repository/Notebook/rust/minigrep/src/lib.rs /home/liuchang/Documents/repository/Notebook/rust/minigrep/src/main.rs
