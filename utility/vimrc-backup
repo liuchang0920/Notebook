@@ -38,6 +38,13 @@ let g:ycm_rust_src_path="/home/liuchang/.rustup/toolchains/stable-x86_64-unknown
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
+set mouse=a
+
+
+set background=dark
+" set termguicolors
+colorscheme material-monokai
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -66,6 +73,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+"Plugin 'racer-rust/vim-racer'
+" Plugin 'racer-rust/vim-racer'
 Plugin 'rust-lang/rust.vim'
 
 " All of your Plugins must be added before the following line
