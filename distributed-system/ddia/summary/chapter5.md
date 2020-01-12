@@ -417,5 +417,55 @@ However, in ssytem with leaderless replication, ther'es no fixed order in which 
 
 ### multi-datacenter operation
 
+cross -data center replicastion as a use case for multi-leader replication. leaderless replication is also suitable for multi-datacenter operation, since it is designed to tolerate conflicting concurrent writes, network interruptions, and latency spikes.
 
-## Detectin concurrent writes
+## Detecting concurrent writes
+
+冲突写检测
+
+The problem is that events may arrive in a different order at different nodes, due to the variable network delays and partial failures.
+
+
+in order to become eventually consistent, the replicas should converge toward the same value. 
+
+there are some strategies
+
+
+### last write wins(discarding concurrent writes)
+
+each replica need to only store the most 'recent' value and allow 'older' values to be overwritten and discarded. as long as we have some way of unambiguously determining which write is more 'recent', and every write is eventually copies to every replica, the replicas will eventually converge to the same value.
+
+
+This conflict resolution algorithm called:**last write wins** (LWW)
+
+### "happens-before" relationship and concurrency
+
+B operation need to happen after A
+
+so we call: "B is casaually dependent on A"
+
+Thus whenever you havea 2 operations A, and B, there're 3 possibilities
+
+* A happended before B,
+* B happended before A,
+* or A and B are concurrent (完全没有关联)
+
+--> If one operation happended before another, the later operation should overwirte the eariler operatin, but if the operations are concurrent, we have a conflict that needs to be resolved.
+
+### capturing the happens-before relationship
+
+figure5-13为例子, figure 5-14画出了有向图
+
+The arrow indicates which operation happened before which other operation, in the sense that the later operation knew about or dependenced on the eariler one.
+
+In this example, the clients are evern fully up to date with the data on the server, since there is always another operation going on concurrently.  But ol versions  
+
+...
+
+Note that  the server can determine whether two operations are concurrent by looking at the version numbers -- it does not need to interpret the value it self, (sof the value could be any data structure)
+
+
+### version vectors 版本向量
+
+
+
