@@ -5,6 +5,11 @@
 https://blog.crimx.com/2018/02/16/understanding-rxjs/
 
 
+视频资源：
+https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi
+
+
+
 ## 2. 基本概念
 ...
 
