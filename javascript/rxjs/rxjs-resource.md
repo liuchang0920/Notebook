@@ -9,6 +9,10 @@ https://blog.crimx.com/2018/02/16/understanding-rxjs/
 https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi
 
 
+segment fault: https://segmentfault.com/blog/caolixiang33
+
+git gist 最经典： https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+
 
 ## 2. 基本概念
 ...
