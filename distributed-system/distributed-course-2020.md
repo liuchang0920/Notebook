@@ -1,6 +1,6 @@
 
 
-# Chapter 1
+# Lecture 1
 
 
 特征
@@ -16,3 +16,42 @@
 * partial failures
 * performance
 
+Fault tolerance
+* availability
+* recoverability
+
+NV Storage (non vault storage)
+* Replication
+
+
+Topic - consistency
+* put(k, v)
+* get(k) -> v
+
+* lots of versions of the key replicas
+
+
+
+
+# Lecture 2
+
+
+## Golang
+
+
+### Threads
+
+
+locking:
+
+
+Coordination: there are times you intentionally want different threads to interact/wait for each other
+
+
+* channels
+* sync.cond
+* waitGroup (coutDown latch? java, wait for a bunch of go routines to finish)
+
+
+
+Deadlock
