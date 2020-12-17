@@ -74,10 +74,8 @@ S1, S2 (key, value pairs tables)
 
 
 
-# Lecture 4
 
-
-### GFS
+## GFS
 
 * big, fast
 * global
@@ -87,3 +85,31 @@ S1, S2 (key, value pairs tables)
 Single data center 
 Internal use
 Big sequencial
+
+
+### master data
+
+filename -> array of chunk handles
+handle -> list of chunk servers, version # for each chunk, primary, lease expiration (stores the information both in RAM and disk (log, checkpoint))
+
+
+
+### Read
+
+1. name, offset -> stores to Master
+2. master sends Chunk handle, list of Servers, (clients caches the result)
+3. client talks to one of the chunk servers
+
+
+
+### Writes
+
+
+
+
+
+
+
+# Lecture 4
+
+
