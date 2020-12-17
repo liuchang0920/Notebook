@@ -66,5 +66,24 @@ GFS
 * faults -> tolerance
 * tolerance -> replication
 * replication -> inconsistency
+* consistency -> low performance
+
+### Bad replication design
+
+S1, S2 (key, value pairs tables)
 
 
+
+# Lecture 4
+
+
+### GFS
+
+* big, fast
+* global
+* sharding
+* automatic recovery
+
+Single data center 
+Internal use
+Big sequencial
