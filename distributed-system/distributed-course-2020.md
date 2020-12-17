@@ -55,3 +55,16 @@ Coordination: there are times you intentionally want different threads to intera
 
 
 Deadlock
+
+# Lecture 3
+
+GFS
+
+## Why hard?
+
+* performance -> sharding
+* faults -> tolerance
+* tolerance -> replication
+* replication -> inconsistency
+
+
