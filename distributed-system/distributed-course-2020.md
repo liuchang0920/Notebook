@@ -113,3 +113,9 @@ handle -> list of chunk servers, version # for each chunk, primary, lease expira
 # Lecture 4
 
 
+what state?
+P/B sync
+cut over
+Anomalies
+
+`
