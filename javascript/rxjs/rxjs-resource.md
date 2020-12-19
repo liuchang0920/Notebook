@@ -5,6 +5,22 @@
 https://blog.crimx.com/2018/02/16/understanding-rxjs/
 
 
+视频资源：
+https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi
+
+
+segment fault: https://segmentfault.com/blog/caolixiang33
+
+git gist 最经典： https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+
+
+### Map, FlatMap 区别
+
+https://segmentfault.com/a/1190000011070872
+
+如果返回内容被of, from 包裹了，那么就变成了一个observable了， 需要flatMap来打平
+
+
 ## 2. 基本概念
 ...
 
