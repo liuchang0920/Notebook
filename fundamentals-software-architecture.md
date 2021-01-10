@@ -184,5 +184,5 @@ at architect is responsible for thinkgs like
 The artifacts created from theses activites are then handed off to the development team, which is responsible for creating class diagram for each component, creating user interface screens, and developing and testing source code
 
 
-
+![](figure2-2.png)
 
