@@ -90,7 +90,98 @@ The main point is that almost every decision an architect makes will be challeng
 
 ## Intersection of architecture and operations
 
-Now, architectures such as microservices freely leverage former solely operational concerns. For example, elastic scale was once painfully built into architectures (Chapter 15)
+Now, architectures such as microservices freely leverage former solely operational concerns. For example, elastic scale was once painfully built into architectures (Chapter 15), while microservices hanlded it less painfully via a liaison architects and devops.
+
+
+## Engineering practices
+
+Traditionally, software architecture was seaparate from the development process used to create software. Dozens of popular methodologies exists to build softwrae, including Waterfall and many falvors of Agile (such as Scrum, exteeme programming, lean, and crystal), which mostly don't impact software architecture.
+
+software engineering practices, on the other hand, refer to process-agnostic practices that have illustrated, repeatable benefit. For example, continuous integration is a proven engineering practice that doesn't rely on a particular process.
+
+#### The path from extreme programming to continuous delivery
+
+The origins of extreme programming nicely illustrate the difference between process and engineering. 
+
+
+As any experience in the software development world illustrates, nothing remains static. Thus, architects may design a system to meet certain creteria, but that design msut survive both implementation (how can architects make sure that thier design is implemented correctly) and the inevitable change driven by the softwrae development ecosystem. What we need is an evolutionary architecture.
+
+`Building evolutionar architectures` introduces the concept of using 'fitness functions' to protect (and govern) architectural characterstics as chagne occurs over time. The concept comes from evolutionary computing. When designing a genetic algorithm, developers have a variety of techniques to mutate the solution, evolving new solutions iteratively. 
+
+还有很多废话。。
+
+
+## Operations/DevOps
+
+The most obvious recent intersection between architecture and related fields occurred with the advent of Devops, driven by some rethinking of architectural axioms. For many years, many companies considered operations as separate function from software development.
+
+...
+
+
+
+The buiders of the microservices style of architecture realized that these operational concerns are better handled by operations. By creating a liaison between architecture and operations, the architects can simplify the design and rely on oeprations ofr the things they handle bests. Thus, realizing a misappropriation of resources led to acciedental complexity, and architects and operations teamed up to create microserviers, the details of which we cover in Chapter 17.
+
+
+
+## Process
+
+Another axiom is that software architecture is mostly orthogonal to the software development process; the way that you build software (process) has little impact o nthe software architecture (structure). THus while the softtware development process a team uses has some impact on software architecture (especially around engineeering practices), historically they have been though of as mostly separate. Most books on softwrae architecture ignore the sotware development process, making specious assumptions about things like predictability. Howevery, the process by which teams develop software has ean impact on many facets of software architecture. For example, many companies over the last few decades have adopted agile developmet methodologies because of the nature of software.  Architects in agile projects can assume iterative development and therfore a faster feedback loop for decision, that in turn allows architects to be more aggresive about experimentation and other knowledge that relies on feedback.
+
+One critical aspect of architecture where Agile methodologies shine is restructuing, Teams often find that they need to migrate thier architecture from 1 pattern to another. for example, a team started with a monolithic architecture because it was easy and fast to bootstrap, but now they need to move to a more modern architecture. 
+
+agile methodologies support these kind of changes better than planning-heavy processes because of the tight feedback loop and encouragement of techniques like the 'strangler pattern' and 'feature toggles'
+
+
+## Data
+
+A large percentage of serious application development includes external data storage, often in the form for a relational (NOSQL) database. However, many books about sfotware architecture include only a light treatment of this important aspect of architecture. code and data have a symbiotic relationship (共生): one isn't useful withou the other.
+
+
+Database administrator often work alongside architects to build data architecture for complex systems, analyzing how relationships and resuse will affect a portfolio of appplications. we won't delve into that level of specialized details in this book .at the same time, we won't ignore the existence and dependence on external storage. In particular, when we talk about the oeprational aspects or architecture and architectural quantum (chapter 3), we include important external concerns such as databases.
+
+## Laws of software architecture
+
+> if an architect thinks they have disccovered something that isn't a trade-off, more likely they just haven't idenitfied the trade-off yet. 
+
+
+
+```
+why is more important than how.
+
+```
+
+
+
+An architect can look at an existing system they have no knowledge of, and ascertain how the structure of the architecture works, but will struggling explaning why certain choices were made versus others.
+
+Throughout the book, we highligh **why** architects make certain decisions along with trade-offs. We also hightlight good techniques for capturing important decisions in 'architecture decision records'
+
+
+
+# Part 1. Foundations
+
+to undersatnd important trade-offs in architecture. developers must understand some basic concepts and terminology concerning compoennts, modularity, coupling , and connascene.
+
+
+
+# Chapter 2 Architectural thinking
+
+
+An architect see things differently from a developers' point of view
+
+This is called architectural thinking.
+
+
+## Architecture Versus Design
+
+at architect is responsible for thinkgs like 
+
+* analyzing business requirements to extract and define the architectural characterstics
+* selecting which architecture patterns and styles would fit the problem domain,
+* creating components ( the building blocks of the system)
+
+
+The artifacts created from theses activites are then handed off to the development team, which is responsible for creating class diagram for each component, creating user interface screens, and developing and testing source code
 
 
 
