@@ -63,6 +63,20 @@ the last major architecture characteristics for silicon sandwich is customizabil
 
 
 
+...
+
+Above all, it is critical for the architect to collaborate with the developers , project manager, operations teams, and other co-constructors of the software system. No architecture decision should be made isolated from the implementation team (which leads to the dreaded Ivory tower architect anti-pattern).
+
+In the case of Silicon sandwiches, the architect, tech lead, developers, and domain analysts should collaborate to decide how best to implement customizabiliyt.
+
+Architects mush remember: there's no best design in architecture, only a bleast worst collection of tradeoffs.
+
+Architects must also prioritize these architecture characterstics toward trying to find the simlest required sets. 
+
+...
+
+怎么感觉那么多废话啊。
+
 
 
 
