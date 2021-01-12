@@ -130,5 +130,11 @@ Any list of architecture acharacterstics will necessarily bea nincomplete list; 
 
 ## Trade-offs and least worst architecture
 
-todo..
+...
 
+Never shoot for the best architecture, but rather the least worst architecture.
+
+
+Too many architecture characterstics leads to a generic solutions that are trying to solve every business problem, and those architectures rarely owrk because the design becomes unwieldy.
+
+this suggests that architects should strive to design architecture to be as iterative as possible. 
