@@ -141,4 +141,26 @@ This works well in distributed architectures like microservices that uses events
 
 ## Workflow approach 
 
-Todo...
+an alternative to event storming offers a more generic appraoch for architects not using DDD or messaging. The workflow apporach models the components around workflows, mucjh like event storming, but without the explicit constraints of building a message-based system. A workflow approach identitfies they key roles, determines the kinds of workflows theses roles engage in, and builds components around the idenitified activieites.
+
+Non of these techniques is superior to the others; all offer a different set of trade-offs. If a team uses a waterfall approahc or other older sotfware development processes, they might prefere the Actor/Actions approach because it is general. When using DDD and corresponding architectures like micorservices, event storming matches the software development process exactly.
+
+
+
+## Case study: going, going, gone; discovering components
+
+* Bidder
+  * iew live videl stream, view live bid stream place a bid
+* auctioneer
+  * enter live bids into sysmte, receive online bids, mark item as sold
+* system
+  * start auction
+  * make payment
+  * track bidder activity
+
+
+then we have the following solution:
+
+Todo
+
+
