@@ -161,6 +161,23 @@ Non of these techniques is superior to the others; all offer a different set of 
 
 then we have the following solution:
 
-Todo
+
+* Video streamer
+ * streams a live auction to users
+* bid streamer
+ * stream bids as they occur to the users. Both video streamer and bid streamer ofer read-only views of the auction to the bidder.
+* bid capture
+ * this component captures bids from both the acutioneer and bidders
+* bid tracker
+ * tracks bids and acts as the system of the record
+* auction session
+ * starts and stops an auction. when the bidder ends the auction, performs the payment and resolution steps, including notifying bidders of ending.
+* payment
+ * third-party payment processor for crediet card payment
+
+
+
+
+## Architecture quantum Redux: choosing between monolithic VS distributed architectures
 
 
