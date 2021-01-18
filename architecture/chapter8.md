@@ -180,4 +180,4 @@ then we have the following solution:
 
 ## Architecture quantum Redux: choosing between monolithic VS distributed architectures
 
-
+todo..
