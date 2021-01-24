@@ -20,4 +20,19 @@ crawler -> disks -> indexing (analysis/minig) -> Index   <- search interface (qu
 
 most of the cycles spent in data analysis and query processing
 
-Todo...
+
+
+## Ranking
+* return best pages first
+* term- vs link- vs click-based approaches
+* machine-learned ranking
+
+
+## Main challenges for search engines
+
+* coverage (need to cover large part of the web)
+* good ranking (cases of braod and narrow queries)
+* freshness (nee t update content)
+* user load (>50000 queries on massive data)
+* manipulation (sites wnat to be listed first)
+* plus monetiation, personalization, localization
