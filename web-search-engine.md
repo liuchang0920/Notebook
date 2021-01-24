@@ -36,3 +36,8 @@ most of the cycles spent in data analysis and query processing
 * user load (>50000 queries on massive data)
 * manipulation (sites wnat to be listed first)
 * plus monetiation, personalization, localization
+
+## Topic hierarchy
+
+Chalenges:
+* design topi
