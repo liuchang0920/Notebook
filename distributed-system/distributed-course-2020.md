@@ -32,6 +32,7 @@ Topic - consistency
 
 
 
+...
 
 # Lecture 2
 
@@ -119,3 +120,35 @@ cut over
 Anomalies
 
 `
+
+...
+
+
+# Lecture 9 ZK and CRAQ
+
+Motivation to use ZooKeeper
+* test and set 
+* configration information
+* Master Election
+
+ZK API looks like a file system
+
+
+## Znode
+
+Types
+* Regular
+* Ephemeral (heart beat check on slave/worker machines)
+* Sequential
+
+
+## API
+
+* Create(Path, Data, Flag) 
+  * (Exclusive)
+* Delete(Path, Version)
+* Exists(Path, Watch)
+  * ZK guarantee the client will be notified when the file path is created when Watch flag is set to true
+* 
+
+
