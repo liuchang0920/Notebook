@@ -149,6 +149,8 @@ Types
 * Delete(Path, Version)
 * Exists(Path, Watch)
   * ZK guarantee the client will be notified when the file path is created when Watch flag is set to true
-* 
+* GetData(Path, Watch)
+* SetData(Path, Data, Version)
+*  
 
 
