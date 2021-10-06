@@ -6,3 +6,5 @@ rustlings finding questions
 * how to write unit test.. this is crucial
 * lazy static
   * https://zhuanlan.zhihu.com/p/145893481  
+* Cow
+  * https://segmentfault.com/a/1190000021154960
