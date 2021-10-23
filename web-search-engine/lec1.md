@@ -87,3 +87,131 @@ Chalenges:
 
 补一下吧。。 都忘了。。
 
+## Typical operations in IR system
+
+* indexing
+* querying/ranking
+* clustering: group docuemnts in sets of similar ones
+* categorization: asign docuemnts to given set of categories
+* citation analysis: find frequently cited or inflential papers
+
+
+## Problems more typically addressed by NLP
+
+* summarization: automatically create a summary
+* machine translation: translate texte between languages
+* info extraction/tagging: identitfy names of people, organizations
+
+## Text index
+
+* a data structure that for supporting IR queries
+* most popular form: inverted index structure
+* like index in a book (索引)
+
+## Boolean query
+..
+
+
+## Web crawling
+
+basic idea: 
+* start a set of know URLs
+* explore the web in "concentric circles" around theses URLs
+
+
+## Traveral strategies:
+* crawl will quickly spread all over the web
+* load-balancing between servers
+* in reality, more refined strategies (but still somewhat BFSish)
+* many other strategies (focused crawls, recrals, site crawls)
+
+## Details
+* handling filetypes
+* URL extensions and CGI scripts
+* frames, imagemaps, basetags
+* black holes (robot traps, spam bots)
+* different names for same site (no perfect solution)
+* duplicates, mirrors
+
+performance consideration: later!
+
+## Robot exclusion protocol
+
+* file: robots.txt in the root directory
+* allows webmaster to "exclude" crawlers (coralwers do not have to obey)
+* may exclude only certain robots or certain parts of the site
+* if at all possible, follow robot exclusion protocol
+
+
+## Robot meta tags
+
+* allow page owners to restrict access to pages
+* does not require access to root directory
+* exluce all robots
+* not supported by all crawlers
+* noindex, and nofollow
+
+## Crawling courtesy
+
+expected to be contacted..
+
+## crawling chanllenges
+
+* crawler may have to run for serveral weeks or months
+* will interact with millions of web server
+* unclear legal situation
+
+
+## Storage system options: (for pages)
+
+* storage pages in standard DBMS (不要这么做)
+
+* use file systems
+  * many pages per file
+  * done, by internet archive
+* use specialzied storage system
+  * hash-partitioned or range -partitioned
+  * GFS+ big table, Hbase hadoop, Dynamo, Cassandra etc
+* operations: read, append, or scan many pages
+* heavy use of SSDs in data center
+
+## Indexing
+
+* how to build an index
+  * in I/O efficient manner
+  * inparallel
+* closely related to I/O efficient sorting
+* also, how to compress an index (ideally while building it)
+
+## Basic indexing concepts and choices
+* lexicon: set of all "words" encountered (词典)
+* for each word occurrence: store index of docuemnt where it occurs
+* also store position in document? (probably yes)
+  * increasees space for index significantly
+  * allows eficient search for phrases
+  * relative positions of words may be important for ranking (how to do re-rank ???)
+* also store additional context ? (in title, bold, in anchrotext?)
+* store works: is, a the..
+* ignore stop words? (maybe better not)
+  * save space in index
+  * cannot search for "to be or not to be." kind long words...
+  * quereis with stop words expensive
+* stemming: runs == run == running
+
+## Indexing (simplified approach)
+
+1. scan through all documents
+2. for every work encountered generate entry (word, doc#, pos)
+3. for entries by (word, doc#, pos)
+4. now transform into final form
+
+
+## Boolean queries vs ranking
+
+
+## 7. Link-Based Ranking Techniques
+
+
+A page that is highly referenced is often better or more important
+
+
