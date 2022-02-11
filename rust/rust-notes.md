@@ -8,3 +8,7 @@
     * 注意rust的哲学是在compile time尽量能够catch所有的bug。当定义的一个函数的参数size不确定的时候，是一定会有问题的。比如说参数是一个实现了某些trait的parameter。 接下来需要学习一个Pin跟Dyn 应该能够cover这部分的问题了。
     * 这老哥还有一个async/await更底层的视频，有空可以再看看。其实跟语言没啥关系了，都是一些设计理念的问题。 有空看就拓展下思路吧。
      
+
+
+* spin Lock
+ * https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html 
