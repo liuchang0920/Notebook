@@ -11,6 +11,7 @@
 
 
 * spin Lock
- * https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html 
+  * https://matklad.github.io/2020/01/02/spinlocks-considered-harmful.html 
 * Memory ordering
- * https://en.cppreference.com/w/cpp/atomic/memory_order  
+  * https://en.cppreference.com/w/cpp/atomic/memory_order  
+  * Video: https://www.youtube.com/watch?v=ZQFzMfHIxng
