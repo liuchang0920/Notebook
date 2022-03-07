@@ -15,3 +15,7 @@
 * Memory ordering
   * https://en.cppreference.com/w/cpp/atomic/memory_order  
   * Video: https://www.youtube.com/watch?v=ZQFzMfHIxng
+  * 中文资料
+   * https://www.codedump.info/categories/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/
+
+
