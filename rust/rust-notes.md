@@ -17,5 +17,7 @@
   * Video: https://www.youtube.com/watch?v=ZQFzMfHIxng
   * 中文资料
    * https://www.codedump.info/categories/%E7%B3%BB%E7%BB%9F%E7%BC%96%E7%A8%8B/
-
+* deno
+ * https://www.youtube.com/watch?v=kpUH5_TPRRY&t=879s
+ * 注意看里边的一个js code到deno code的转化的流程图
 
