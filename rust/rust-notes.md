@@ -21,3 +21,9 @@
  * https://www.youtube.com/watch?v=kpUH5_TPRRY&t=879s
  * 注意看里边的一个js code到deno code的转化的流程图
 
+* Mutext 相关
+  *  https://mnwa.medium.com/building-a-stupid-mutex-in-the-rust-d55886538889
+  * https://zhuanlan.zhihu.com/p/50006335
+
+* 面试
+  *  https://blog.sbw.so/u/byte-dance-rust-cpp-interview-experience.html
