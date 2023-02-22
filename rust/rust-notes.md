@@ -1,6 +1,4 @@
 
-
-
 * Rust async/await
   * YT的视频，整体听下来应该可以总结以下几点，以后如果有机会用到的话再补充
     * tokio framework会提供一个自己的runtime, 然后会有自己的executor service去run async的code，tokio::spawn的是一个假的thread. 并不一定是跟Linux上的spawn的thread一样 (determined by the type of executor service)。所以虽然code可能看上去不会死锁，但是由于可能只有一个thread等等的情况，会导致deadlock。 另外异步的result tracking也有点tricky, 可以用类似tracing等库，用来追捕异步的log。
@@ -27,3 +25,4 @@
 
 * 面试
   *  https://blog.sbw.so/u/byte-dance-rust-cpp-interview-experience.html
+  * https://os.phil-opp.com/async-await/ 用来写OS(?) 
